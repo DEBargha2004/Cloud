@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fd6a046d78.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/statics/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="out-head">
+        <div class="head">
+            <div class="greeting">
+                <p><span class="greet">Hello </span><span class="name"><%=user_data[0]['first_name']%> <%=user_data[0]['last_name']%></span></p>
+            </div>
+            <div class="logout">
+                <div class="logout-in" id="logout">
+                    <span>
+                        <form action="/logout" method="get">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <button type="submit">Logout</button>
+                        </form>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form">
+        <div class="main-form">
+            <form action="/savecontent" method="post" enctype="multipart/form-data" class="entry" onsubmit="return check(this)">
+                <input type="file" name="userfile" id="">
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+    
+    <%parcel_data.forEach((item)=>{%>
+        <% var list = item['file_path'].split('.')%>
+        <% var format = list[list.length-1]%>
+        <% if(format == 'pdf'){%>
+            <div class="inner">
+                <embed src="/userfile/<%=item['code_path']%>" type="" width="700px" height="400px">
+            </div>
+        <%}else if(format == 'png' || format == 'jpeg' || format == 'jpg' || format == 'gif'){%>
+            <form action="/download" method="post">
+                <div class="inner">
+                    <div class="outer-name">
+                        <p class="imname"><%=item.file_path%></p>
+                    </div>
+                    <img src="/userfile/<%=item['code_path']%>" alt="" class="inner-image">
+                    <button type="submit" name="image" value="<%=item['code_path']%>">Download</button>
+                </div>
+            </form>
+        <%}else if(format == 'mp4' || format == 'mkv' || format == 'avi' || format == 'webm' || format == 'mov' || format == 'octet-stream'){%>
+            <div class="inner">
+                <div class="outer-name">
+                    <p class="imname"><%=item.file_path%></p>
+                </div>
+                <div class="video">
+                    <video src="userfile/<%=item.code_path%>" controls></video>
+                </div>
+            </div>
+        <%}%>
+    <%})%>
+    <div class="footer">
+        <div class="trademark">
+            <p>copyright © <%=new Date().getFullYear()%></p>
+        </div>
+    </div>
+
+<script src="statics/logic.js"></script>
+</body>
+</html>

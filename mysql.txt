@@ -1,0 +1,26 @@
+CREATE TABLE userinfo (
+    id int primary key auto_increment,
+    first_name varchar(255),
+    last_name varchar(255),
+    phone_num varchar(255),
+    email_id varchar(255),
+    user_name varchar(255),
+    password varchar (255)
+)
+
+CREATE TABLE parcel (
+    parcel_id int primary key,
+    user_id int,
+    file_path varchar(255),
+    code_path varchar(255),
+    FOREIGN KEY (user_id) references userinfo(id)
+)
+
+CREATE TABLE cookieinfo (
+    id int,
+    cookie_code varchar(255),
+    FOREIGN KEY (id) references userinfo(id)
+)
+
+
+Note : if this donot contains userfile in public then create one 

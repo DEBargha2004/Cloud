@@ -1,0 +1,103 @@
+.inner{
+    display: block;
+    margin: 30px;
+}
+.footer{
+    position: relative;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+.trademark{
+    height: auto;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+}
+.trademark p {
+    font-weight: 300;
+}
+.entry{
+    border: 2px solid black;
+    padding: 50px;
+}
+
+.form{
+    position: relative;
+    height: 200px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-form{
+    position: absolute;
+}
+
+img{
+    width: 100%;
+}
+.out-head{
+    display: flex;
+    justify-content: center;
+}
+.head{width: 90%;
+    position: relative;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.head p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    display: inline-block;
+  
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg, #4c29e6, #ff1952);
+  
+  /* Set the background size and repeat properties. */
+
+
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+
+.imname{
+    display: inline-block;
+    font-size: 20px;
+}
+.outer-name{
+    display:flex ;
+    justify-content: center;
+}
+.logout{
+    position: relative;
+    width: 100px;
+    display: flex;
+    align-items: center;
+}
+.logout-in{
+    position: absolute;
+}
+.logout-content{
+    display: block;
+}
+.video{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+video{
+    width: 80%;
+}
+.video{
+    display: flex;
+    justify-content: center;
+}
